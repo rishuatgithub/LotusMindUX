@@ -5,9 +5,9 @@ import { AssignmentComponent } from './assignment/assignment.component';
 import { GradeComponent } from './grades/grades.component';
 
 export const appRoutes:Routes = [
-
     { path: 'assignment', component: AssignmentComponent },
     { path: 'grade', component: GradeComponent },
     { path: 'home', component: HomeComponent },
-    { path: '', redirectTo: '/home', pathMatch:'full'}
+    { path: '', redirectTo: '/home', pathMatch:'full'},
+    { path: 'user', loadChildren:'src/app/user/user.module#UserModule'}
 ]
