@@ -1,0 +1,29 @@
+<div class="navbar-light bg-light">
+  <div class="container-fluid">
+      <!-- <div>
+          <img src="../../assets/images/lotus.png" style="height: 50px; width: 50px" />
+      </div> -->
+    <div class="navbar-header">
+       <a class="navbar-brand" [routerLink]="['/home']">Lotus Mind</a>
+       
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        
+        <li><a [routerLink]="['/grade']">Grades</a></li>
+        <li><a [routerLink]="['/assignment']">Assignment</a></li>
+        <li><a>Calender</a></li>
+      </ul>
+      
+     <form id="searchForm"  class="navbar-form navbar-right"  >
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search Sessions" >
+        </div>
+        <button class="btn btn-default" >
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
