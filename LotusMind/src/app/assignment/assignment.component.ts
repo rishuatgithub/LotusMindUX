@@ -1,12 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { AssignmentService } from './shared/assignment.service';
 
 @Component({
     selector: 'assignment-section',
     templateUrl: './assignment.component.html',
-    styles:[]
+    styles:[
+        ` 
+            button { margin:5px; }
+        `
+    ]
 })
 
-export class AssignmentComponent{
+export class AssignmentComponent implements OnInit{
+
+    assignment: any[]
+    constructor(private assignmentService: AssignmentService){
+        
+    }
+    
+    ngOnInit(){
+        this.assignment = this.assignmentService.getAssignments()
+    }
     
 
 }
