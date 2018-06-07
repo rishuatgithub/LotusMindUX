@@ -11,6 +11,7 @@ import { GradeComponent } from './grades/grades.component';
 
 
 import { AssignmentService } from './assignment/shared/assignment.service';
+import { UserAuthService } from './user/user-auth-shared/userauth.service';
 
 import { appRoutes } from './routes';
 
@@ -27,7 +28,8 @@ import { appRoutes } from './routes';
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    AssignmentService
+    AssignmentService,
+    UserAuthService
   ],
   bootstrap: [AppComponent]
 })
