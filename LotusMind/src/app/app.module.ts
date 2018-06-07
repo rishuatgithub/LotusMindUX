@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { GradeComponent } from './grades/grades.component';
 
+import { CollapsibleDetailsComponent } from './assignment/shared/collapsible-details.component';
 
 import { AssignmentService } from './assignment/shared/assignment.service';
 import { UserAuthService } from './user/user-auth-shared/userauth.service';
@@ -21,7 +22,8 @@ import { appRoutes } from './routes';
     NavBarComponent,
     HomeComponent,
     AssignmentComponent,
-    GradeComponent
+    GradeComponent,
+    CollapsibleDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -2,33 +2,18 @@
 <hr>
 <div class="assignment-buttons">
   <button type="button" class="btn btn-success">Create New</button>
-  <button type="button" class="btn btn-danger">Delete</button>
   <button type="button" class="btn btn-primary">Export</button>
-  <button type="button" class="btn btn-primary">Clone</button>
   
 </div>
-<div>
-    <table class="table table-dark">
-    <thead>
-      <tr>
-        <th>Assignment</th>
-        <th>Subject</th>
-        <th>Due Date</th>
-        <th>Hours Required</th>
-        <th>Is Graded</th>
-        <th>Mark as Completed</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let asglist of assignment">
-        <td>{{asglist.assignment}}</td>
-        <td>{{asglist.subject}}</td>
-        <td>{{asglist.due_date}}</td>
-        <td>{{asglist.hours_required}}</td>
-        <td>{{asglist.is_graded}}</td>
-        <td>{{asglist.mark_as_complete}}</td>
-      </tr>
-    </tbody>
-  </table>
-    
+<div class="row" >
+  <div class="col-sm-5" *ngFor="let asglist of assignment">
+    <collapsible-details [title]="asglist.assignment">
+      <span>Subject: {{asglist.subject}}</span>
+      <span>Teacher: {{asglist.teacher}}</span>
+      <span>Due Date: {{asglist.due_date | date }}  | Hours Required: {{asglist.hours_required}} </span>
+      <span>Graded : {{asglist.is_graded}}</span>
+      <button type="button" class="btn btn-primary btn-sm">Click to Complete</button>
+      <button type="button" class="btn btn-danger btn-sm">Delete</button>
+    </collapsible-details>
+  </div>
 </div>

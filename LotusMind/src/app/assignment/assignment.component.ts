@@ -7,7 +7,9 @@ import { AssignmentService } from './shared/assignment.service';
     templateUrl: './assignment.component.html',
     styles:[
         ` 
-            button { margin:5px; }
+           button { margin:5px; }
+           span { display: block; }
+           
         `
     ]
 })

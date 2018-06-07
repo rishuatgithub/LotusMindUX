@@ -7,6 +7,7 @@ import { userRoutes } from './user.routes';
 
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { UserSignupComponent } from './sign-up/user-signup.component';
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import { LoginComponent } from './login/login.component';
     ],
     declarations: [
         ProfileComponent,
-        LoginComponent
+        LoginComponent,
+        UserSignupComponent
     ],
     providers: [
     
