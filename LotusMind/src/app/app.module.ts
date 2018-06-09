@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-
+import { LandingComponent } from './landing/landing.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { AssignmentComponent } from './assignment/assignment.component';
@@ -19,6 +19,7 @@ import { appRoutes } from './routes';
 @NgModule({
   declarations: [
     AppComponent,
+    LandingComponent,
     NavBarComponent,
     HomeComponent,
     AssignmentComponent,

@@ -6,8 +6,10 @@ import { UserAuthService } from '../user/user-auth-shared/userauth.service';
     templateUrl:'./navbar.component.html',
     styles: [`
         div {border: 0px solid black;}
-        
-    
+        li { color: black; }
+        a {
+            margin: 2px;
+        }
     `]
 })
 
