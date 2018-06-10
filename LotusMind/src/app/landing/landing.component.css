@@ -5,23 +5,21 @@
     color: white;
     
     height: 90vh;  
-    
+    padding: 5%;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+    opacity: 0.8;
 
 }
 
 div{
-    text-align: center;  
-    border:1px solid black;
+      
     height: 100%;
 }
 
 .lm-title h1{
-    text-align: left;
     font-size: 80px;
 }
 
