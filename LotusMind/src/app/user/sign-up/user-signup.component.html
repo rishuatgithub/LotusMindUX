@@ -1,31 +1,44 @@
-<div>
-        <h1>New User </h1>
-        <hr>
-        <div class="col-md-4">
-          <form [formGroup]="signupForm" (ngSubmit)="addUser(signupForm.value)" autocomplete="off" novalidate>
+<div class="container">
+      <h1>New User </h1>
+      <hr>
+      <div class="col-md-4">
+          <form [formGroup]="signupForm" (ngSubmit)="addUser(signupForm.value)" autocomplete="off">
             <div class="form-group">
-                <label for="schoolName">School or Organization Name</label>
-                <input formControlName="schoolName" id="schoolName" type="text" class="form-control" />
+                <label for="schoolName"><strong>School or Organization Name</strong></label>
+                <input formControlName="schoolName" id="schoolName" type="text" required class="form-control" />
+                <p *ngIf="signupForm.controls.userName?.invalid && (signupForm.controls.userName?.touched)">
+                    Please enter your school or organization name
+                </p>
             </div>
             <div class="form-group">
-              <label for="emailID">Email ID or User ID</label>
-              <input formControlName="emailID" id="emailID" type="text" class="form-control" />
+                <label for="firstName"><strong>First Name</strong></label>
+                <input formControlName="firstName" id="firstName" type="text"  required class="form-control"/>
+                <p *ngIf="signupForm.controls.userName?.invalid && (signupForm.controls.userName?.touched)">
+                    Please enter your first name
+                </p>
             </div>
             <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input formControlName="firstName" id="firstName" type="text" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label for="lastName">Last Name</label>
+                <label for="lastName"><strong>Last Name</strong></label>
                 <input formControlName="lastName" id="lastName" type="text" class="form-control"/>
             </div>
             <div class="form-group">
-              <label for="password">Password</label>
-              <input formControlName="password" id="password" type="password" class="form-control"/>
+              <label for="emailID"><strong>Email ID</strong></label>
+              <input formControlName="emailID" id="emailID" type="text" required class="form-control" />
+              <p *ngIf="signupForm.controls.userName?.invalid && (signupForm.controls.userName?.touched)">
+                  Please enter your email
+              </p>
+            </div>
+            <div class="form-group">
+              <label for="password"><strong>Password</strong></label>
+              <input formControlName="password" id="password" type="password" required class="form-control"/>
+              <p *ngIf="signupForm.controls.userName?.invalid && (signupForm.controls.userName?.touched)">
+                  Please enter password
+              </p>
             </div>
 
-            <button type="submit" class="btn btn-primary">Sign Up</button>
+            <button type="submit"  [disabled]="signupForm.invalid" class="btn btn-primary">Sign Up</button> 
             <button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>
+
           </form>
-        </div>
+      </div>
 </div>

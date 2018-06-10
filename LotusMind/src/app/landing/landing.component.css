@@ -10,15 +10,19 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.8;
+    
 
+}
+
+div{
+    text-align: center;  
+    border:1px solid black;
+    height: 100%;
 }
 
 .lm-title h1{
+    text-align: left;
     font-size: 80px;
-}
-.lm-title h3{
-    font-size: 30px;
 }
 
 .about-page {

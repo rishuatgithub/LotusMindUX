@@ -4,7 +4,22 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     selector:'sign-up',
-    templateUrl:'./user-signup.component.html'
+    templateUrl:'./user-signup.component.html',
+    styles:[`
+        button { margin: 5px; text-align:center;}
+        div { 
+            display: block;
+            margin: 0 auto;
+            border:0px solid black; 
+        }
+        div > h1 {
+            text-align: center;
+        }
+        input {
+            margin: 5px;
+        }
+
+    `]
 })
 
 export class UserSignupComponent implements OnInit{

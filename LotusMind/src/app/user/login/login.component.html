@@ -1,26 +1,36 @@
-<h1>Login</h1>
-<hr>
-<div class="col-md-4">
-  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off">
-    <div class="form-group" >
-      <label for="userName">User Name:</label>
-      <em *ngIf="loginForm.controls.userName?.invalid && (loginForm.controls.userName?.touched || mouseoverLogin)">
-        Required
-      </em>
-      <input (ngModel)="userName" id="userName" name="userName" required type="text" class="form-control" placeholder="User Name..." />
-    </div>
-    <div class="form-group" >
-      <label for="password">Password:</label>
-      <em *ngIf="loginForm.controls.password?.invalid && (loginForm.controls.password?.touched || mouseoverLogin)">
-        Required
-      </em>
-      <input (ngModel)="password" id="password" name="password" required type="password" class="form-control"placeholder="Password..." />
-    </div>
-    
-    <span (mouseenter)="mouseoverLogin=true" (mouseleave)="mouseoverLogin=false">
-    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
-    </span>
+<div class="container">
+  <h1>Login</h1>
+  <hr>
+  <div class="col-md-4">
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off">
 
-    <button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>
-  </form>
+      <div class="form-group" >
+        <label for="userName"><strong>Email or Username</strong></label>
+        <input (ngModel)="userName" id="userName" name="userName" required type="text" class="form-control" placeholder="Email or User name" />
+        <p *ngIf="loginForm.controls.userName?.invalid 
+                && (loginForm.controls.userName?.touched)">
+            Please enter your email or user name
+        </p>
+      </div>
+      <div class="form-group" >
+        <label for="password"><strong>Password</strong></label>
+        <input (ngModel)="password" id="password" name="password" required type="password" class="form-control"placeholder="Password" />
+        <p *ngIf="loginForm.controls.password?.invalid && (loginForm.controls.password?.touched)">
+            Please enter password
+        </p>
+      </div>
+      
+      <span (mouseenter)="mouseoverLogin=true" (mouseleave)="mouseoverLogin=false">
+        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-secondary">Login</button>
+      </span>
+        <!--<button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>-->
+
+        <div>
+          <ul>
+            <li>Don't have an account? <a [routerLink]="['signup']">Sign up</a></li>
+            <li>Forgot <a href="#">Password</a>?</li>
+        </ul>
+        </div>
+    </form>
+  </div>
 </div>

@@ -6,8 +6,21 @@ import { Router } from '@angular/router';
     templateUrl: './login.component.html',
     styles:[
         `
-        em { color: red; float: right; padding-left: 10px; }
-        label { color: black; font-size: 18px; }
+        p { font-size: 12px; padding-left: 10px; color:#D91E18; }
+        
+        button { margin: 5px; text-align:center;}
+        div { 
+            
+            display: block;
+            margin: 0 auto;
+            border:0px solid black; 
+        }
+        div > h1 {
+            text-align: center;
+        }
+        input {
+            margin: 5px;
+        }
         `
     ]
 
@@ -28,8 +41,13 @@ export class LoginComponent{
         this.route.navigate(['home'])
     }
 
-    cancel(){
-        this.route.navigate(['home'])
-    }
+    /*cancel(){
+        if(this.userAuth.isAuthenticated()){
+            this.route.navigate(['home'])
+        }else{
+            this.route.navigate(['lotusmind'])
+        }
+            
+    }*/
 
 }
