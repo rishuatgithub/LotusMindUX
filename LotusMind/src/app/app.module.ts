@@ -13,6 +13,7 @@ import { CollapsibleDetailsComponent } from './assignment/shared/collapsible-det
 
 import { AssignmentService } from './assignment/shared/assignment.service';
 import { UserAuthService } from './user/user-auth-shared/userauth.service';
+import { OrganisationService } from './global-shared/organisation.service';
 
 import { appRoutes } from './routes';
 
@@ -32,7 +33,8 @@ import { appRoutes } from './routes';
   ],
   providers: [
     AssignmentService,
-    UserAuthService
+    UserAuthService,
+    OrganisationService
   ],
   bootstrap: [AppComponent]
 })

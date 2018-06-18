@@ -6,7 +6,7 @@ export class UserAuthService{
 
     currentUser: IUser;
 
-    loginUser(userName: String, password: String){
+    loginUser(userName: String, password: String, orgid: number){
 
         this.currentUser = {
             id: 1,

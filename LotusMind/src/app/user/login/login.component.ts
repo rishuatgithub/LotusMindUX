@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserAuthService } from '../user-auth-shared/userauth.service';
 import { Router } from '@angular/router';
+import { OrganisationService } from '../../global-shared/organisation.service';
+import { IOrganisation } from '../../global-shared/organisation.model';
 
 @Component({
     templateUrl: './login.component.html',
@@ -26,18 +28,29 @@ import { Router } from '@angular/router';
 
 })
 
-export class LoginComponent{
+export class LoginComponent implements OnInit{
 
     userName: string
     password: string
+    orgid: number
     mouseoverLogin
 
-    constructor(private userAuth: UserAuthService, private route:Router){}
+    organisation: any[]
+
+   
+    constructor(private userAuth: UserAuthService, 
+        private orgs:OrganisationService, 
+        private route:Router){}
+
+    ngOnInit() {  
+        this.organisation = this.orgs.getAllOrgs();
+    }
+        
 
     login(formValues){
         console.log(formValues)
 
-        this.userAuth.loginUser(formValues.userName, formValues.password)
+        this.userAuth.loginUser(formValues.userName, formValues.password, formValues.orgid)
         this.route.navigate(['home'])
     }
 

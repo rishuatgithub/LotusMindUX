@@ -5,6 +5,13 @@
     <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off">
 
       <div class="form-group" >
+        <label for="orgid"><strong>School Name</strong></label>
+        <select [(ngModel)]="orgid" id="orgid" name="orgid">
+          <option *ngFor="let schools of organisation" [value]="schools.org_id" ngDefaultControl>{{schools.org_display_name}}</option>
+        </select>
+      </div>
+
+      <div class="form-group" >
         <label for="userName"><strong>Email or Username</strong></label>
         <input (ngModel)="userName" id="userName" name="userName" required type="text" class="form-control" placeholder="Email or User name" />
         <p *ngIf="loginForm.controls.userName?.invalid 
@@ -19,6 +26,12 @@
             Please enter password
         </p>
       </div>
+      <!--<div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+        <label class="form-check-label" for="dropdownCheck2">
+          Remember me
+        </label>
+      </div>-->
       
       <span (mouseenter)="mouseoverLogin=true" (mouseleave)="mouseoverLogin=false">
         <button type="submit" [disabled]="loginForm.invalid" class="btn btn-secondary">Login</button>
