@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserAuthService } from '../user-auth-shared/userauth.service';
 import { Router } from '@angular/router';
 import { OrganisationService } from '../../global-shared/organisation.service';
-import { IOrganisation } from '../../global-shared/organisation.model';
 
 @Component({
     templateUrl: './login.component.html',
@@ -35,17 +34,18 @@ export class LoginComponent implements OnInit{
     orgid: number
     mouseoverLogin
 
-    organisation: any[]
+    organisation: any
 
    
     constructor(private userAuth: UserAuthService, 
         private orgs:OrganisationService, 
         private route:Router){}
 
-    ngOnInit() {  
-        this.organisation = this.orgs.getAllOrgs();
+    ngOnInit() {
+        this.orgs.getAllOrgs().subscribe(
+            data => {this.organisation = data}
+        );
     }
-        
 
     login(formValues){
         console.log(formValues)

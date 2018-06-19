@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class OrganisationService{
 
+    constructor(private http:HttpClient){}
+
     getAllOrgs(){
-        return ORGANISATION
+
+        return this.http.get('/serverapi/org/all');
+        //return ORGANISATION
     }
 
 }
 
 
-const ORGANISATION = [
+/*const ORGANISATION = [
     {
         org_id:1,
         org_name:'Kendriya Vidyalaya',
@@ -23,7 +28,7 @@ const ORGANISATION = [
         country:'India',
         postal_code:'742101',
         mobile:1,
-        social_id:0
+        social_id:""
     },
     {
         org_id:2,
@@ -37,6 +42,6 @@ const ORGANISATION = [
         country:'India',
         postal_code:'700074',
         mobile:2,
-        social_id:0
+        social_id:""
     }
-]
+]*/

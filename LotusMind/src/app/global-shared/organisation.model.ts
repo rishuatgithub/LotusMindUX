@@ -10,5 +10,5 @@ export interface IOrganisation{
     country:string,
     postal_code:string,
     mobile:number,
-    social_id:number
+    social_id:string
 }
