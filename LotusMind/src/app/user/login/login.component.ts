@@ -29,14 +29,14 @@ import { OrganisationService } from '../../global-shared/organisation.service';
 
 export class LoginComponent implements OnInit{
 
-    userName: string
-    password: string
-    orgid: number
+    userid: string
+    passwd: string
+    org_id: number
     mouseoverLogin
 
     organisation: any
+    authlogin: any
 
-   
     constructor(private userAuth: UserAuthService, 
         private orgs:OrganisationService, 
         private route:Router){}
@@ -48,10 +48,10 @@ export class LoginComponent implements OnInit{
     }
 
     login(formValues){
-        console.log(formValues)
 
-        this.userAuth.loginUser(formValues.userName, formValues.password, formValues.orgid)
-        this.route.navigate(['home'])
+        this.userAuth.loginUser(formValues)
+      
+        //this.route.navigate(['home'])
     }
 
     /*cancel(){

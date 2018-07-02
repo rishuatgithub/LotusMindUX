@@ -5,24 +5,23 @@
     <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off">
 
       <div class="form-group" >
-        <label for="orgid"><strong>School Name</strong></label>
-        <select [(ngModel)]="orgid" id="orgid" name="orgid">
+        <label for="org_id"><strong>School Name</strong></label>
+        <select [(ngModel)]="org_id" id="org_id" name="org_id">
           <option *ngFor="let schools of organisation" [value]="schools.org_id" ngDefaultControl>{{schools.org_display_name}}</option>
         </select>
       </div>
-
       <div class="form-group" >
-        <label for="userName"><strong>Email or Username</strong></label>
-        <input (ngModel)="userName" id="userName" name="userName" required type="text" class="form-control" placeholder="Email or User name" />
-        <p *ngIf="loginForm.controls.userName?.invalid 
-                && (loginForm.controls.userName?.touched)">
+        <label for="userid"><strong>Email or Username</strong></label>
+        <input (ngModel)="userid" id="userid" name="userid" required type="text" class="form-control" placeholder="Email or User name" />
+        <p *ngIf="loginForm.controls.userid?.invalid 
+                && (loginForm.controls.userid?.touched)">
             Please enter your email or user name
         </p>
       </div>
       <div class="form-group" >
-        <label for="password"><strong>Password</strong></label>
-        <input (ngModel)="password" id="password" name="password" required type="password" class="form-control"placeholder="Password" />
-        <p *ngIf="loginForm.controls.password?.invalid && (loginForm.controls.password?.touched)">
+        <label for="passwd"><strong>Password</strong></label>
+        <input (ngModel)="passwd" id="passwd" name="passwd" required type="password" class="form-control"placeholder="Password" />
+        <p *ngIf="loginForm.controls.passwd?.invalid && (loginForm.controls.passwd?.touched)">
             Please enter password
         </p>
       </div>
