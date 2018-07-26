@@ -1,14 +1,7 @@
 export interface IUser{
-    userid:string,
-    fname?:string,
-    lname?:string    
-}
-
-
-export interface ILogin{
-    org_id:number,
-    userid:string,
-    passwd:string
+    userid:string
+    fname?: string,
+    lname?: string
 }
 
 export interface AppResponse{

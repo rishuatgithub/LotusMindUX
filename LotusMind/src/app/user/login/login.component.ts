@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit{
 
     organisation: any
     authlogin: any
+    loginInvalid: boolean = false;
 
     constructor(private userAuth: UserAuthService, 
         private orgs:OrganisationService, 
@@ -47,11 +48,16 @@ export class LoginComponent implements OnInit{
         );
     }
 
+    
     login(formValues){
-
         this.userAuth.loginUser(formValues)
-      
-        //this.route.navigate(['home'])
+            .subscribe(resp => {
+                if(!resp){
+                    this.loginInvalid = true;
+                }else{
+                    this.route.navigate(['home'])
+                }
+            })
     }
 
     /*cancel(){

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { IUser, ILogin,AppResponse } from './userauth.model';
+import { IUser } from './userauth.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -12,35 +14,20 @@ const httpOptions = {
 export class UserAuthService{
 
     currentUser: IUser;
-    login: ILogin;
-
+  
     constructor(private http:HttpClient){}
 
     loginUser(loginFormData){
-
-        /*this.currentUser = {
-            id: 1,
-            firstName: 'Rishu',
-            lastName: 'Shrivastava',
-            userName: 'rishu'
-        }*/
-        return this.http.post<AppResponse>('/serverapi/login/signin',
-            JSON.stringify(loginFormData),
-            httpOptions).subscribe(
-                res => {
-                    console.log(res)
-                    console.log(res.response_result)
-
-                    //this.currentUser.userid = res.response_result;
-
-                    return res
-                    //this.route.navigate(['home']);
-                },
-                error =>{
-                    return error;
-                }
-            )
-
+      return this.http.post('/serverapi/login/signin',
+        JSON.stringify(loginFormData),
+        httpOptions)
+            .pipe(tap(data =>{
+                console.log(data)
+                this.currentUser = data['response_result'];
+            }))
+            .pipe(catchError(err => {
+                return of(false)
+            }))
     }
 
     isAuthenticated(){
@@ -53,4 +40,11 @@ export class UserAuthService{
 
     }
 
+
+    private handleError<T> (operation = 'operation', result?: T){
+        return (error: any): Observable<T> => {
+            console.error(error);
+            return of(result as T)
+        }
+    }
 }
