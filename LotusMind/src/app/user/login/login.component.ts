@@ -43,6 +43,8 @@ export class LoginComponent implements OnInit{
         private route:Router){}
 
     ngOnInit() {
+
+        // get the list of schools
         this.orgs.getAllOrgs().subscribe(
             data => {this.organisation = data}
         );

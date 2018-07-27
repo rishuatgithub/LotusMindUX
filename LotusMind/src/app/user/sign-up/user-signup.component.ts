@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
+import { OrganisationService } from '../../global-shared/organisation.service';
 
 @Component({
     selector:'sign-up',
     templateUrl:'./user-signup.component.html',
     styles:[`
+        p { font-size: 12px; padding-left: 10px; color:#D91E18; }
         button { margin: 5px; text-align:center;}
         div { 
             display: block;
@@ -25,30 +27,41 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class UserSignupComponent implements OnInit{
 
     signupForm: FormGroup
+    organisation: any
     
+    org_id: number
+    email: string
+    fname: string
+    lname: string
+    upasswd: string
 
-    constructor(private route: Router){}
+    constructor(private route: Router, private orgs:OrganisationService){}
 
     ngOnInit(){
 
-        let schoolName = new FormControl()
+        // get the list of schools
+        this.orgs.getAllOrgs().subscribe(
+            data => {this.organisation = data}
+        );
+
+        let org_id = new FormControl()
         let emailID = new FormControl()
         let firstName = new FormControl()
         let lastName = new FormControl()
         let password = new FormControl()
 
         this.signupForm = new FormGroup({
-            schoolName:schoolName,
-            emailID: emailID,
-            firstName: firstName,
-            lastName: lastName,
-            password: password
+            org_id: org_id,
+            email: emailID,
+            fname: firstName,
+            lname: lastName,
+            upasswd: password            
         })
 
     }
 
     cancel(){
-        this.route.navigate(['home'])
+       // this.route.navigate(['home'])
     }
 
     addUser(formValues){
